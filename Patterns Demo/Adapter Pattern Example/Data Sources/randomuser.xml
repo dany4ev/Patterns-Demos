@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<root>
+    <results>
+        <gender>female</gender>
+        <name>
+            <title>Ms</title>
+            <first>Florencia</first>
+            <last>Arce</last>
+        </name>
+        <location>
+            <street>
+                <number>7055</number>
+                <name>Circuito San Luis Potosí</name>
+            </street>
+            <city>Campo Militar N. 37B (El Cabi)</city>
+            <state>Ciudad de Mexico</state>
+            <country>Mexico</country>
+            <postcode>83845</postcode>
+            <coordinates>
+                <latitude>29.9606</latitude>
+                <longitude>110.2302</longitude>
+            </coordinates>
+            <timezone>
+                <offset>+6:00</offset>
+                <description>Almaty, Dhaka, Colombo</description>
+            </timezone>
+        </location>
+        <email>florencia.arce@example.com</email>
+        <login>
+            <uuid>60fcb613-d2d6-4292-af63-9e219cd04b79</uuid>
+            <username>bluemeercat930</username>
+            <password>ground</password>
+            <salt>iYAhJl50</salt>
+            <md5>a624292c43a99d48705a9c8c39d919a6</md5>
+            <sha1>167ba849e27b69d711401221200e89bbc250cd48</sha1>
+            <sha256>55b8267dec88c7718d025f9ea51a15d73eb0816091c8fe26c367d0cd15a073ab</sha256>
+        </login>
+        <dob>
+            <date>1953-09-04T07:45:23.629Z</date>
+            <age>71</age>
+        </dob>
+        <registered>
+            <date>2004-08-16T01:33:12.841Z</date>
+            <age>20</age>
+        </registered>
+        <phone>(678) 037 4676</phone>
+        <cell>(624) 288 6209</cell>
+        <id>
+            <name>NSS</name>
+            <value>33 50 92 4070 6</value>
+        </id>
+        <picture>
+            <large>https://randomuser.me/api/portraits/women/55.jpg</large>
+            <medium>https://randomuser.me/api/portraits/med/women/55.jpg</medium>
+            <thumbnail>https://randomuser.me/api/portraits/thumb/women/55.jpg</thumbnail>
+        </picture>
+        <nat>MX</nat>
+    </results>
+    <info>
+        <seed>da5eaeb3a1eb96f5</seed>
+        <results>1</results>
+        <page>1</page>
+        <version>1.4</version>
+    </info>
+</root>
