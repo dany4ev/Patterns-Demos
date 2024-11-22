@@ -1,12 +1,19 @@
 ﻿using Patterns_Demo.Adapter_Pattern_Example;
+using Patterns_Demo.Adapter_Pattern_Example.Interfaces;
 using Patterns_Demo.Adapter_Pattern_Example.Models;
+using Patterns_Demo.Adapter_Pattern_Example.Services;
 using Patterns_Demo.Behavioral_Patterns.Iterator_Pattern.Models;
 using Patterns_Demo.Behavioral_Patterns.Iterator_Pattern.Services;
+using Patterns_Demo.Behavioral_Patterns.Template_Method_Pattern.Interfaces;
+using Patterns_Demo.Behavioral_Patterns.Template_Method_Pattern.Services;
 using Patterns_Demo.Bridge_Pattern_Example;
 using Patterns_Demo.Bridge_Pattern_Example.Models;
 using Patterns_Demo.Bridge_Pattern_Example.Services;
+using Patterns_Demo.Creational_Patterns.Abstract_Factory_Pattern.Interfaces;
+using Patterns_Demo.Creational_Patterns.Abstract_Factory_Pattern.Services;
 using Patterns_Demo.SOLID_Pattern_Example.Liskov_Substitution_Principle.Interfaces;
 using Patterns_Demo.SOLID_Pattern_Example.Liskov_Substitution_Principle.Services;
+using Patterns_Demo.Structural_Patterns.Adapter_Pattern.Services;
 using Patterns_Demo.Structural_Patterns.Decorator_Pattern.Services;
 
 namespace Patterns_Demo;
@@ -15,17 +22,19 @@ internal class Program
 {
     private static void Main(string[] args)
     {
+
         #region Creational Patterns
 
         // 2.
         AbstractFactoryPatternExample();
-        
+
         #endregion
 
         #region Structural Patterns
 
         // 1.
         AdapterPatternExample();
+        AdapterPatternExample2();
 
         // 2.
         BridgePatternExample();
@@ -40,6 +49,9 @@ internal class Program
         // 2.
         IteratorPatternExample();
 
+        // 9.
+        TemplatePatternExample();
+
         #endregion
 
         #region SOLID Patterns
@@ -51,14 +63,25 @@ internal class Program
 
     }
 
+    private static void TemplatePatternExample()
+    {
+        // define a skeleton of algorithms of an operation
+        Etl etl = new ExcelToWord();
+        etl.Execute();
+    }
+
     private static void AbstractFactoryPatternExample()
     {
-        throw new NotImplementedException();
+        CarCompany carCompany = new CarCompany();
+        var teslaCar = carCompany.ProduceVehicle(nameof(TeslaCar));
+        teslaCar.Manufacture();
+        
+        var teslabike = carCompany.ProduceVehicle(nameof(TeslaBike));
+        teslabike.Manufacture();
     }
 
     private static void IteratorPatternExample()
     {
-
         Customer cust = new Customer();
         // user should not be able to add items to this collection but only iterate it
         cust.Add(new Address() {Type = "o"});
@@ -133,7 +156,6 @@ internal class Program
 
     private static void AdapterPatternExample()
     {
-
         // Example of Adapter Design Pattern 
         // Regardless of datasource we get the Data
         DataAdapter adapter = new DataAdaptee(SourceType.File);
@@ -155,5 +177,17 @@ internal class Program
         adapter = new DataAdaptee(SourceType.Sql);
         adapter.Fill();
         Console.WriteLine(adapter.Data);
+    }
+    
+    private static void AdapterPatternExample2()
+    {
+        // make a connector for incompatible classes
+        // used for some third party classes when integrated within our system
+        IReport rep = new ExcelReport();
+        rep.Export();
+        rep = new WordReport();
+        rep.Export();
+        rep = new AdapterPdf();
+        rep.Export();
     }
 }

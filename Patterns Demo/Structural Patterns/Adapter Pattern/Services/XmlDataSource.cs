@@ -17,8 +17,9 @@ public class XmlDataSource : IDataSource
         // {
         //     
         // }
-        XmlSerializer serializer = new XmlSerializer(typeof(Root));
-        var result = (Root)serializer.Deserialize(new StringReader(xmlString))!;
-        return result;
+        // XmlSerializer serializer = new XmlSerializer(typeof(Root));
+        // var result = (Root)serializer.Deserialize(new StringReader(xmlString))!;
+        // return result;
+        return JsonConvert.DeserializeObject<Root>(xmlString);
     }
 }

@@ -19,3 +19,19 @@ https://www.dofactory.com/net/bridge-design-pattern
 https://search.brave.com/search?q=bridge+pattern+examples+C%23+with+interface&source=web&summary=1&summary_og=e0183834fc1f72c901c645
 
 https://code-maze.com/decorator-design-pattern/
+
+https://dotnetfiddle.net/T9rZvY
+https://dotnetfiddle.net/Np6cbv
+https://dotnetfiddle.net/E4qS6H
+https://dotnetfiddle.net/T4nvlB
+https://dotnetfiddle.net/fGhbbn
+https://dotnetfiddle.net/tFI8dh
+https://dotnetfiddle.net/jHGXQN
+https://dotnetfiddle.net/4MhOQb
+https://dotnetfiddle.net/GA26lQ
+https://dotnetfiddle.net/sYF740
+https://dotnetfiddle.net/CS2cPq
+https://dotnetfiddle.net/cw97fy
+https://dotnetfiddle.net/wJt5BU
+https://dotnetfiddle.net/qM1GYI
+https://dotnetfiddle.net/TEcISP
