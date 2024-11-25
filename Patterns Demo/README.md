@@ -20,7 +20,7 @@ https://search.brave.com/search?q=bridge+pattern+examples+C%23+with+interface&so
 
 https://code-maze.com/decorator-design-pattern/
 
-https://dotnetfiddle.net/T9rZvY
+
 https://dotnetfiddle.net/Np6cbv
 https://dotnetfiddle.net/E4qS6H
 https://dotnetfiddle.net/T4nvlB
