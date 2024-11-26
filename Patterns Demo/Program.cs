@@ -19,14 +19,12 @@ using Patterns_Demo.Creational_Patterns.Singleton_Pattern.Services;
 using Patterns_Demo.SOLID_Pattern_Example.Interface_Segregation_Principle.Services;
 using Patterns_Demo.SOLID_Pattern_Example.Liskov_Substitution_Principle.Interfaces;
 using Patterns_Demo.SOLID_Pattern_Example.Liskov_Substitution_Principle.Services;
-using Patterns_Demo.SOLID_Patterns.Dependency_Inversion_Principle.Abstractions;
 using Patterns_Demo.SOLID_Patterns.Dependency_Inversion_Principle.Services;
 using Patterns_Demo.SOLID_Patterns.Open_Closed_Principle.Abstractions;
 using Patterns_Demo.SOLID_Patterns.Open_Closed_Principle.Services;
 using Patterns_Demo.SOLID_Patterns.Single_Responsiblity_Principle.Services;
 using Patterns_Demo.Structural_Patterns.Adapter_Pattern.Services;
 using Patterns_Demo.Structural_Patterns.Decorator_Pattern.Services;
-using System.Data;
 using System.Net;
 
 namespace Patterns_Demo;
@@ -90,21 +88,21 @@ internal class Program
         #region SOLID Patterns
 
         // 1.
-        SingleResponsibilityPrincipleExample();
+        //SingleResponsibilityPrincipleExample();
 
         // 2.
-        OpenClosedPrincipleExample();
-        OpenClosedPrincipleExample2();
+        //OpenClosedPrincipleExample();
+        //OpenClosedPrincipleExample2();
 
         // 3.
-        LiskovSubstitutionPrincipleExample();
-        LiskovSubstitutionPrincipleExample2();
+        //LiskovSubstitutionPrincipleExample();
+        //LiskovSubstitutionPrincipleExample2();
 
         // 4.
-        InterfaceSegregationPrincipleExample();
+        //InterfaceSegregationPrincipleExample();
 
         // 5.
-        DependencyInversionPrincipleExample();
+        //DependencyInversionPrincipleExample();
 
         #endregion
 
