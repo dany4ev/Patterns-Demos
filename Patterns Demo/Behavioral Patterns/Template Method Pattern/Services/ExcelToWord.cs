@@ -5,15 +5,18 @@ namespace Patterns_Demo.Behavioral_Patterns.Template_Method_Pattern.Services;
 // deferring some steps to client subclasses 
 public class ExcelToWord : Etl
 {
-    protected override void Extract()
+    public override void Extract()
     {
+        Console.WriteLine("ExcelToWord Extracting..");
     }
 
-    protected override void Transform()
+    public override void Transform()
     {
+        Console.WriteLine("ExcelToWord Transform..");
     }
 
-    protected override void Load()
+    public override void Load()
     {
+        Console.WriteLine("ExcelToWord Load..");
     }
 }

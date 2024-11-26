@@ -1,8 +1,11 @@
 ﻿using Patterns_Demo.Adapter_Pattern_Example;
 using Patterns_Demo.Adapter_Pattern_Example.Interfaces;
 using Patterns_Demo.Adapter_Pattern_Example.Models;
+using Patterns_Demo.Behavioral_Patterns.Command_Pattern.Services;
 using Patterns_Demo.Behavioral_Patterns.Iterator_Pattern.Models;
 using Patterns_Demo.Behavioral_Patterns.Iterator_Pattern.Services;
+using Patterns_Demo.Behavioral_Patterns.Observer_Pattern.Services;
+using Patterns_Demo.Behavioral_Patterns.Strategy_Pattern.Services;
 using Patterns_Demo.Behavioral_Patterns.Template_Method_Pattern.Interfaces;
 using Patterns_Demo.Behavioral_Patterns.Template_Method_Pattern.Services;
 using Patterns_Demo.Bridge_Pattern_Example;
@@ -10,6 +13,9 @@ using Patterns_Demo.Bridge_Pattern_Example.Models;
 using Patterns_Demo.Bridge_Pattern_Example.Services;
 using Patterns_Demo.Creational_Patterns.Abstract_Factory_Pattern.Interfaces;
 using Patterns_Demo.Creational_Patterns.Abstract_Factory_Pattern.Services;
+using Patterns_Demo.Creational_Patterns.Factory_Method_Pattern.Models;
+using Patterns_Demo.Creational_Patterns.Factory_Method_Pattern.Services;
+using Patterns_Demo.Creational_Patterns.Singleton_Pattern.Services;
 using Patterns_Demo.SOLID_Pattern_Example.Interface_Segregation_Principle.Services;
 using Patterns_Demo.SOLID_Pattern_Example.Liskov_Substitution_Principle.Interfaces;
 using Patterns_Demo.SOLID_Pattern_Example.Liskov_Substitution_Principle.Services;
@@ -20,6 +26,7 @@ using Patterns_Demo.SOLID_Patterns.Open_Closed_Principle.Services;
 using Patterns_Demo.SOLID_Patterns.Single_Responsiblity_Principle.Services;
 using Patterns_Demo.Structural_Patterns.Adapter_Pattern.Services;
 using Patterns_Demo.Structural_Patterns.Decorator_Pattern.Services;
+using System.Data;
 using System.Net;
 
 namespace Patterns_Demo;
@@ -31,8 +38,16 @@ internal class Program
 
         #region Creational Patterns
 
+        // 1.
+        //FactoryMethodPatternExample();
+        //FactoryMethodPatternExample2();
+        //FactoryMethodPatternExample3();
+
         // 2.
         //AbstractFactoryPatternExample();
+
+        // 3.
+        //SingletonPatternExample();
 
         #endregion
 
@@ -53,10 +68,22 @@ internal class Program
         #region Behavioral Patterns
 
         // 2.
+        CommandPatternExample();
+
+        // 3.
         //IteratorPatternExample();
+
+        // 6.
+        //ObserverPatternExample();
+        //ObserverPatternExample2();
+
+        // 8.
+        //StrategyPatternExample();
+        //StrategyPatternExample2();
 
         // 9.
         //TemplatePatternExample();
+        //TemplatePatternExample2();
 
         #endregion
 
@@ -81,6 +108,105 @@ internal class Program
 
         #endregion
 
+    }
+
+    private static void CommandPatternExample()
+    {
+        // The client code can parameterize an invoker with any commands.
+        Invoker invoker = new Invoker();
+        invoker.SetOnStart(new SimpleCommand("Say Hi!"));
+        Receiver receiver = new Receiver();
+        invoker.SetOnFinish(new ComplexCommand(receiver, "Send email", "Save report"));
+
+        invoker.DoSomethingImportant();
+    }
+
+    private static void ObserverPatternExample2()
+    {
+        // The client code.
+        var subject = new Subject();
+        var observerA = new ConcreteObserverA();
+        subject.Attach(observerA);
+
+        var observerB = new ConcreteObserverB();
+        subject.Attach(observerB);
+
+        subject.SomeBusinessLogic();
+        subject.SomeBusinessLogic();
+
+        subject.Detach(observerB);
+
+        subject.SomeBusinessLogic();
+    }
+
+    private static void ObserverPatternExample()
+    {
+        TrainSignal trainSignal = new TrainSignal();
+        new Car(trainSignal);
+        new Car(trainSignal);
+        new Car(trainSignal);
+        new Car(trainSignal);
+        trainSignal.HereComesATrain();
+    }
+
+    private static void SingletonPatternExample()
+    {
+        Logger.TheInstance.InitializeLogging();
+        Logger.TheInstance.LogMessage("I love static data");
+        Logger.TheInstance.LogMessage("static data exists before and after main()");
+        Logger.TheInstance.LogMessage("When I think static, I think memory created by the compiler");
+        Logger.TheInstance.ShutdownLogging();
+    }
+
+    private static void FactoryMethodPatternExample3()
+    {
+        var person = PersonFactoryWithoutConditionals.CreatePerson<Manager>(EnumPerson.Manager);
+        person.Invoke();
+    }
+
+    private static void FactoryMethodPatternExample2()
+    {
+        string? input = Console.ReadLine();
+
+        if (!string.IsNullOrEmpty(input))
+        {
+            var person = PersonFactory.GetPerson(input).Name;
+            Console.WriteLine(person);
+        }
+    }
+
+    private static void TemplatePatternExample2()
+    {
+        AlgorithmBase algorithmBase = new ConcreteAlgorithmA();
+        algorithmBase.TemplateMethod();
+        algorithmBase = new ConcreteAlgorithmB();
+        algorithmBase.TemplateMethod();
+    }
+
+    private static void StrategyPatternExample2()
+    {
+        Client client = new Client();
+        client.Strategy = new ConcreteStrategyA();
+        client.CallAlgorithm();
+        client.Strategy = new ConcreteStrategyB();
+        client.CallAlgorithm();
+    }
+
+    private static void StrategyPatternExample()
+    {
+        Context context = new Context(new Strategy1()); // we inject the Strategy1
+        context.ExecuteTheStrategy(); // it will print “Execute strategy 1”;
+        context = new Context(new Strategy2()); // we inject the Strategy2
+        context.ExecuteTheStrategy(); // it will print “Execute strategy 2”
+    }
+
+    private static void FactoryMethodPatternExample()
+    {
+        Console.WriteLine("Factory with usual switch statement:");
+        FactoryWithSwitch.FactoryMethod("a");
+
+        Console.WriteLine("Factory with polymorphism instead of usual switch statement:");
+        new FactoryWithPolymorphism(new MA()).FactoryMethod();
     }
 
     private static void LiskovSubstitutionPrincipleExample2()
@@ -195,8 +321,10 @@ internal class Program
     private static void TemplatePatternExample()
     {
         // define a skeleton of algorithms of an operation
-        Etl etl = new ExcelToWord();
-        etl.Execute();
+        Etl algorithmBase = new ExcelToWord();
+        algorithmBase.Execute();
+        algorithmBase = new WordToExcel();
+        algorithmBase.Execute();
     }
 
     private static void AbstractFactoryPatternExample()
@@ -214,6 +342,7 @@ internal class Program
         Customer cust = new Customer();
         // user should not be able to add items to this collection but only iterate it
         cust.Add(new Address() { Type = "o" });
+
         foreach (var x in cust.GetAddresses())
         {
             // read all addresses here

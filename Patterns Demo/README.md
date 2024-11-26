@@ -20,18 +20,12 @@ https://search.brave.com/search?q=bridge+pattern+examples+C%23+with+interface&so
 
 https://code-maze.com/decorator-design-pattern/
 
+https://elegantcode.com/2009/01/10/refactoring-a-switch-statement/
 
-https://dotnetfiddle.net/Np6cbv
-https://dotnetfiddle.net/E4qS6H
-https://dotnetfiddle.net/T4nvlB
-https://dotnetfiddle.net/fGhbbn
-https://dotnetfiddle.net/tFI8dh
-https://dotnetfiddle.net/jHGXQN
-https://dotnetfiddle.net/4MhOQb
-https://dotnetfiddle.net/GA26lQ
-https://dotnetfiddle.net/sYF740
-https://dotnetfiddle.net/CS2cPq
-https://dotnetfiddle.net/cw97fy
-https://dotnetfiddle.net/wJt5BU
-https://dotnetfiddle.net/qM1GYI
-https://dotnetfiddle.net/TEcISP
+https://dzone.com/articles/the-openclosed-principle
+
+https://www.dotnettricks.com/learn/designpatterns/strategy-design-pattern-c-sharp
+
+https://asusualcoding.wordpress.com/2017/10/23/factory-pattern-without-switch-case-in-c/
+
+https://refactoring.guru/design-patterns/observer/csharp/example
